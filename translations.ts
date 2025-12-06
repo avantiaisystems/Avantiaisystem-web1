@@ -192,7 +192,7 @@ export const translations = {
       buttonSecondary: "Soporte"
     },
     footer: {
-      tagline: "Orquestando Inteligencia de Negocios con IA Autónoma.",
+      tagline: "Ingeniería de Inteligencia Autónoma para la Empresa Global.",
       solutions: "Soluciones",
       company: "Empresa",
       legal: "Legal",
@@ -456,7 +456,7 @@ export const translations = {
       buttonSecondary: "Support"
     },
     footer: {
-      tagline: "Orchestrating Business Intelligence with Autonomous AI.",
+      tagline: "Autonomous Intelligence Engineering for the Global Enterprise.",
       solutions: "Solutions",
       company: "Company",
       legal: "Legal",
@@ -720,7 +720,7 @@ export const translations = {
       buttonSecondary: "サポート"
     },
     footer: {
-      tagline: "自律型AIで、ビジネスインテリジェンスを再構築する。",
+      tagline: "グローバル企業のための自律型インテリジェンス・エンジニアリング",
       solutions: "ソリューション",
       company: "会社情報",
       legal: "法的情報",

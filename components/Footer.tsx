@@ -137,8 +137,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Copyright */}
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-slate-600 font-medium">{t('footer.rights')}</p>
+        <div className="border-t border-white/5 pt-8 flex justify-center items-center">
+          <p className="text-xs text-slate-600 font-medium text-center">{t('footer.rights')}</p>
         </div>
       </div>
     </footer>
