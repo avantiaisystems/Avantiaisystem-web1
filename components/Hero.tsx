@@ -85,18 +85,18 @@ const Hero: React.FC = () => {
         </ScrollAnimation>
 
         <ScrollAnimation delay={300}>
-          {/* Adjusted gap and button padding/sizes for mobile */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-12">
+          {/* Reduced gap and button padding/sizes for mobile */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-8 mb-12">
             <button 
               onClick={handleContactClick}
-              className="group w-full sm:w-auto px-6 py-2.5 md:px-8 md:py-4 bg-white hover:bg-slate-200 text-slate-950 rounded-full font-bold text-sm md:text-lg transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] active:scale-95 flex items-center justify-center gap-2 duration-300 animate-pulsate-fwd hover:bg-gradient-to-r hover:from-white hover:via-slate-200 hover:to-white hover:bg-[length:200%_auto] hover:animate-shimmer-slide"
+              className="group w-full sm:w-auto px-5 py-3 md:px-8 md:py-4 bg-white hover:bg-slate-200 text-slate-950 rounded-full font-bold text-sm md:text-lg transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] active:scale-95 flex items-center justify-center gap-2 duration-300 animate-pulsate-fwd hover:bg-gradient-to-r hover:from-white hover:via-slate-200 hover:to-white hover:bg-[length:200%_auto] hover:animate-shimmer-slide"
             >
               {t('hero.ctaPrimary')}
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
               onClick={handleContactClick}
-              className="w-full sm:w-auto px-6 py-2.5 md:px-8 md:py-4 bg-white/5 backdrop-blur-sm text-white border border-white/10 hover:bg-white/10 hover:border-white/20 rounded-full font-bold text-sm md:text-lg transition-all hover:shadow-lg active:scale-95 flex items-center justify-center gap-2 duration-300 animate-pulsate-fwd"
+              className="w-full sm:w-auto px-5 py-3 md:px-8 md:py-4 bg-white/5 backdrop-blur-sm text-white border border-white/10 hover:bg-white/10 hover:border-white/20 rounded-full font-bold text-sm md:text-lg transition-all hover:shadow-lg active:scale-95 flex items-center justify-center gap-2 duration-300 animate-pulsate-fwd"
             >
               <PlayCircle className="w-4 h-4 md:w-5 md:h-5 text-slate-300" />
               {t('hero.ctaSecondary')}

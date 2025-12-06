@@ -37,7 +37,7 @@ const CTA: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimation>
           {/* Reduced padding on mobile */}
-          <div className="relative rounded-[2.5rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 overflow-hidden px-6 py-10 md:py-24 text-center shadow-2xl shadow-primary-900/20 group hover:border-primary-500/30 transition-all duration-500">
+          <div className="relative rounded-[2.5rem] bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 overflow-hidden px-5 py-8 md:py-24 text-center shadow-2xl shadow-primary-900/20 group hover:border-primary-500/30 transition-all duration-500">
             
             {/* Background decoration - Electric */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -55,17 +55,17 @@ const CTA: React.FC = () => {
                 {t('cta.subtitle')}
               </p>
               
-              <div className="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-0">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 px-2 sm:px-0">
                 <button 
                   onClick={handleContactClick}
-                  className="w-full sm:w-auto px-6 py-2.5 md:px-10 md:py-5 bg-white hover:bg-slate-200 text-slate-950 rounded-full font-bold text-sm md:text-lg transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2 animate-pulsate-fwd hover:bg-gradient-to-r hover:from-white hover:via-slate-200 hover:to-white hover:bg-[length:200%_auto] hover:animate-shimmer-slide"
+                  className="w-full sm:w-auto px-5 py-3 md:px-10 md:py-5 bg-white hover:bg-slate-200 text-slate-950 rounded-full font-bold text-sm md:text-lg transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2 animate-pulsate-fwd hover:bg-gradient-to-r hover:from-white hover:via-slate-200 hover:to-white hover:bg-[length:200%_auto] hover:animate-shimmer-slide"
                 >
                   {t('cta.buttonPrimary')}
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <button 
                   onClick={handleSupportClick}
-                  className="w-full sm:w-auto px-6 py-2.5 md:px-10 md:py-5 bg-transparent border border-slate-700 hover:bg-white/5 hover:border-slate-500 text-white rounded-full font-bold text-sm md:text-lg transition-all animate-pulsate-fwd flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-5 py-3 md:px-10 md:py-5 bg-transparent border border-slate-700 hover:bg-white/5 hover:border-slate-500 text-white rounded-full font-bold text-sm md:text-lg transition-all animate-pulsate-fwd flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5" />
                   {t('cta.buttonSecondary')}

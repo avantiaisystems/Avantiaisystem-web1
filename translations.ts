@@ -113,8 +113,8 @@ export const translations = {
       agentName: "Soporte Avanti",
       demoMsg1: "¡Hola! Bienvenido al soporte de Avanti AI.",
       demoMsg2: "¿En qué puedo ayudarte hoy?",
-      platformWA: "WhatsApp (Demo)",
-      platformLINE: "LINE (Demo)",
+      platformWA: "WhatsApp",
+      platformLINE: "LINE",
       openWhatsApp: "Chat en WhatsApp",
       openLine: "Chat en LINE"
     },
@@ -379,8 +379,8 @@ export const translations = {
       agentName: "Avanti Support",
       demoMsg1: "Hello! Welcome to Avanti AI support.",
       demoMsg2: "How can I help you today?",
-      platformWA: "WhatsApp (Demo)",
-      platformLINE: "LINE (Demo)",
+      platformWA: "WhatsApp",
+      platformLINE: "LINE",
       openWhatsApp: "Chat on WhatsApp",
       openLine: "Chat on LINE"
     },
@@ -645,8 +645,8 @@ export const translations = {
       agentName: "Avantiサポート",
       demoMsg1: "こんにちは！Avanti AIサポートへようこそ。",
       demoMsg2: "本日はどのようなご用件でしょうか？",
-      platformWA: "WhatsApp (デモ)",
-      platformLINE: "LINE (デモ)",
+      platformWA: "WhatsApp",
+      platformLINE: "LINE",
       openWhatsApp: "WhatsAppでチャット",
       openLine: "LINEでチャット"
     },

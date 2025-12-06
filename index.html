@@ -1,42 +1,318 @@
+
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
+<html lang="en" class="scroll-smooth">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Avanti AI Systems</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
             colors: {
-              primary: { 50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd', 400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9', 800: '#5b21b6', 900: '#4c1d95', 950: '#2e1065' },
+              primary: {
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
+                500: '#8b5cf6', // Electric Purple
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95',
+                950: '#2e1065',
+              },
+              accent: {
+                cyan: '#06b6d4',
+                fuchsia: '#d946ef',
+                lime: '#84cc16'
+              },
+              slate: {
+                850: '#1e293b',
+                900: '#0f172a',
+                950: '#020617', // Main dark bg
+              }
             },
             animation: {
               'blob': 'blob 7s infinite',
+              'scroll': 'scroll 30s linear infinite',
               'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
               'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+              'text-shimmer': 'textShimmer 2.5s ease-out infinite alternate',
+              'slide-down': 'slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'scale-in': 'scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'scan': 'scan 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+              'float-infinite': 'float 4s ease-in-out infinite',
+              'pulse-ring': 'pulseRing 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite',
+              'electric-pulse': 'electricPulse 1s infinite',
+              'pulsate-fwd': 'pulsateFwd 1.5s ease-in-out infinite',
+              'flow-right': 'flowRight 3s linear infinite',
+              'shake': 'shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite',
+              'glitch': 'glitch 2s infinite',
+              'stack-up': 'stackUp 2s infinite ease-in-out',
+              'shimmer-slide': 'shimmerSlide 3s linear infinite',
+              'typing': 'typing 1.5s steps(4, end) infinite',
+              'graph-grow': 'graphGrow 2s ease-out forwards',
+              'float-coin': 'floatCoin 3s ease-in-out infinite',
+              'fluctuate': 'fluctuate 2s ease-in-out infinite',
+              'float-ui': 'floatUi 4s ease-in-out infinite',
+              'sound-wave': 'soundWave 1.2s ease-in-out infinite',
+              'morph-shape': 'morphShape 8s ease-in-out infinite',
+              'scan-line': 'scanLine 2s linear infinite',
               'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+              'cursor-move': 'cursorMove 4s ease-in-out infinite',
+              'theme-switch': 'themeSwitch 4s ease-in-out infinite',
+              'gradient-xy': 'gradientXY 6s ease infinite',
+              'search-move': 'searchMove 4s ease-in-out infinite',
+              'bulb-glow': 'bulbGlow 2s ease-in-out infinite',
+              'rocket-shake': 'rocketShake 0.2s ease-in-out infinite',
+              'spin-slow': 'spin 8s linear infinite',
+              'bot-pulse': 'botPulse 1.5s ease-in-out infinite',
+              'bot-pulse-sync': 'botPulseSync 3s ease-in-out infinite',
+              'rapid-pulse': 'rapidPulse 0.5s ease-in-out infinite',
+              'neon-pulse': 'neonPulse 2s ease-in-out infinite',
+              'message-pop-in': 'messagePopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'particle-flow': 'particleFlow 2s linear infinite',
+              'card-pop': 'cardPop 3s ease-in-out infinite',
+              'orbit-active': 'orbitActive 6s linear infinite',
+              'dash-scroll': 'dashScroll 1s linear infinite',
+              'number-glow': 'numberGlow 4s ease-in-out infinite',
+              'scroll-left': 'scrollLeft 20s linear infinite',
+              'scroll-right': 'scrollRight 20s linear infinite',
+              'slide-in-up': 'slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             },
             keyframes: {
-              blob: { '0%': { transform: 'translate(0px, 0px) scale(1)' }, '33%': { transform: 'translate(30px, -50px) scale(1.1)' }, '66%': { transform: 'translate(-20px, 20px) scale(0.9)' }, '100%': { transform: 'translate(0px, 0px) scale(1)' } },
-              fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-              float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-              pulseGlow: { '0%, 100%': { boxShadow: '0 0 20px rgba(139,92,246,0.2)' }, '50%': { boxShadow: '0 0 40px rgba(139,92,246,0.6)' } }
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(calc(-100% - 4rem))' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              textShimmer: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '100%': { backgroundPosition: '100% 50%' },
+              },
+              slideDown: {
+                '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.9)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              scan: {
+                '0%': { transform: 'translateY(-100%)', opacity: '0' },
+                '20%': { opacity: '1' },
+                '80%': { opacity: '1' },
+                '100%': { transform: 'translateY(200%)', opacity: '0' },
+              },
+              pulseRing: {
+                '0%': { transform: 'scale(0.8)', opacity: '0.5' },
+                '100%': { transform: 'scale(2)', opacity: '0' },
+              },
+              electricPulse: {
+                '0%, 100%': { boxShadow: '0 0 0 0 rgba(139, 92, 246, 0.7)' },
+                '70%': { boxShadow: '0 0 0 10px rgba(139, 92, 246, 0)' },
+              },
+              pulsateFwd: {
+                '0%': { transform: 'scale(1)' },
+                '50%': { transform: 'scale(1.05)' },
+                '100%': { transform: 'scale(1)' },
+              },
+              flowRight: {
+                '0%': { transform: 'translateX(-40px)', opacity: '0' },
+                '20%': { opacity: '1' },
+                '80%': { opacity: '1' },
+                '100%': { transform: 'translateX(200px)', opacity: '0' },
+              },
+              shake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              },
+              glitch: {
+                '0%': { transform: 'translate(0)' },
+                '20%': { transform: 'translate(-2px, 2px)' },
+                '40%': { transform: 'translate(-2px, -2px)' },
+                '60%': { transform: 'translate(2px, 2px)' },
+                '80%': { transform: 'translate(2px, -2px)' },
+                '100%': { transform: 'translate(0)' }
+              },
+              stackUp: {
+                '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                '50%': { transform: 'translateY(-5px) scale(1.05)' }
+              },
+              shimmerSlide: {
+                '0%': { backgroundPosition: '200% center' },
+                '100%': { backgroundPosition: '-200% center' }
+              },
+              typing: {
+                '0%': { opacity: '0.3' },
+                '50%': { opacity: '1' },
+                '100%': { opacity: '0.3' }
+              },
+              graphGrow: {
+                '0%': { height: '0%' },
+                '100%': { height: 'var(--target-height)' }
+              },
+              floatCoin: {
+                '0%, 100%': { transform: 'translateY(0) rotateY(0deg)' },
+                '50%': { transform: 'translateY(-10px) rotateY(180deg)' }
+              },
+              fluctuate: {
+                '0%, 100%': { height: '20%' },
+                '50%': { height: '90%' }
+              },
+              floatUi: {
+                 '0%, 100%': { transform: 'translate(0, 0)' },
+                 '50%': { transform: 'translate(5px, -5px)' }
+              },
+              soundWave: {
+                '0%, 100%': { height: '10%' },
+                '50%': { height: '100%' }
+              },
+              morphShape: {
+                '0%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%', background: 'linear-gradient(45deg, #7c3aed, #06b6d4)' },
+                '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%', background: 'linear-gradient(45deg, #06b6d4, #7c3aed)' },
+                '100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%', background: 'linear-gradient(45deg, #7c3aed, #06b6d4)' }
+              },
+              scanLine: {
+                '0%': { top: '0%' },
+                '100%': { top: '100%' }
+              },
+              pulseGlow: {
+                '0%, 100%': { boxShadow: '0 0 20px rgba(139,92,246,0.2)' },
+                '50%': { boxShadow: '0 0 40px rgba(139,92,246,0.6)' }
+              },
+              cursorMove: {
+                '0%': { transform: 'translate(0, 0)' },
+                '25%': { transform: 'translate(60px, 40px)' }, 
+                '30%': { transform: 'translate(60px, 40px) scale(0.9)' }, 
+                '35%': { transform: 'translate(60px, 40px) scale(1)' },
+                '60%': { transform: 'translate(0, 0)' },
+                '100%': { transform: 'translate(0, 0)' }
+              },
+              themeSwitch: {
+                '0%, 25%': { background: '#1e293b' }, 
+                '35%, 100%': { background: '#4c1d95' }
+              },
+              gradientXY: {
+                '0%, 100%': { 'background-size': '400% 400%', 'background-position': 'left center' },
+                '50%': { 'background-size': '200% 200%', 'background-position': 'right center' }
+              },
+              searchMove: {
+                '0%': { transform: 'translate(0,0) rotate(0deg)' },
+                '25%': { transform: 'translate(5px, -5px) rotate(15deg)' },
+                '50%': { transform: 'translate(-5px, 0) rotate(-10deg)' },
+                '75%': { transform: 'translate(5px, 5px) rotate(5deg)' },
+                '100%': { transform: 'translate(0,0) rotate(0deg)' }
+              },
+              bulbGlow: {
+                '0%, 100%': { filter: 'drop-shadow(0 0 2px rgba(253, 224, 71, 0.3))', transform: 'scale(1)' },
+                '50%': { filter: 'drop-shadow(0 0 15px rgba(253, 224, 71, 0.8))', transform: 'scale(1.1)' }
+              },
+              rocketShake: {
+                '0%, 100%': { transform: 'translate(0, 0)' },
+                '25%': { transform: 'translate(-1px, 1px)' },
+                '50%': { transform: 'translate(1px, -1px)' },
+                '75%': { transform: 'translate(-1px, -1px)' }
+              },
+              botPulse: {
+                '0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)' },
+                '50%': { transform: 'scale(1.1)', filter: 'brightness(1.3) drop-shadow(0 0 10px rgba(139, 92, 246, 0.8))' }
+              },
+              botPulseSync: {
+                '0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)' },
+                '40%': { transform: 'scale(1)', filter: 'brightness(1)' },
+                '50%': { transform: 'scale(1.15)', filter: 'brightness(1.5) drop-shadow(0 0 15px rgba(139, 92, 246, 0.9))' },
+                '60%': { transform: 'scale(1)', filter: 'brightness(1)' }
+              },
+              rapidPulse: {
+                '0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)' },
+                '50%': { transform: 'scale(1.15)', filter: 'brightness(1.5) drop-shadow(0 0 15px rgba(139, 92, 246, 0.9))' },
+              },
+              neonPulse: {
+                '0%, 100%': { filter: 'drop-shadow(0 0 5px rgba(255,255,255,0.5))' },
+                '50%': { filter: 'drop-shadow(0 0 15px rgba(255,255,255,1))' }
+              },
+              messagePopIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px) scale(0.9)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' }
+              },
+              particleFlow: {
+                '0%': { transform: 'translate(0, 0) scale(0)', opacity: '0' },
+                '50%': { opacity: '1' },
+                '100%': { transform: 'translate(var(--tx), var(--ty)) scale(1)', opacity: '0' }
+              },
+              cardPop: {
+                '0%, 100%': { transform: 'scale(0.8)', opacity: '0' },
+                '20%, 80%': { transform: 'scale(1)', opacity: '1' }
+              },
+              orbitActive: {
+                '0%': { transform: 'rotate(0deg) translateX(50px) rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg) translateX(50px) rotate(-360deg)' }
+              },
+              dashScroll: {
+                '0%': { backgroundPosition: '0 0' },
+                '100%': { backgroundPosition: '20px 0' }
+              },
+              numberGlow: {
+                '0%, 100%': { color: '#1e293b', textShadow: 'none' }, // slate-800
+                '50%': { color: '#a78bfa', textShadow: '0 0 10px rgba(167,139,250,0.5)' } // primary-400
+              },
+              scrollLeft: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' }
+              },
+              scrollRight: {
+                '0%': { transform: 'translateX(-50%)' },
+                '100%': { transform: 'translateX(0)' }
+              },
+              slideInUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' }
+              }
             }
           }
         }
       }
     </script>
-
     <style>
-      .glass { background: rgba(2, 6, 23, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-      body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: radial-gradient(circle at top, #151b2f 0, #050816 60%, #02040a 100%); min-height: 100vh; }
+      .glass {
+        background: rgba(2, 6, 23, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: radial-gradient(circle at top, #151b2f 0, #050816 60%, #02040a 100%);
+      }
+      .shimmer-text { background-size: 200% auto; }
+      ::selection { background-color: #7c3aed; color: white; }
       .hero { position: relative; min-height: 100vh; overflow: hidden; }
       .hero__particles { position: absolute; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
       .particle {
@@ -49,117 +325,41 @@
         10% { opacity: var(--opacity, 0.7); }
         100% { transform: translate3d(var(--x-offset, 0), -110vh, 0) scale(var(--scale, 1)); opacity: 0; }
       }
-      /* Configuración de las partículas */
-      .particle:nth-child(1) { left: 10%; --scale: 0.6; --opacity: 0.5; animation-duration: 18s; animation-delay: -2s; }
-      .particle:nth-child(2) { left: 30%; --scale: 0.9; --opacity: 0.8; animation-duration: 22s; animation-delay: -8s; }
-      .particle:nth-child(3) { left: 50%; --scale: 0.7; --opacity: 0.6; animation-duration: 19s; animation-delay: -4s; }
-      .particle:nth-child(4) { left: 70%; --scale: 1.0; --opacity: 0.9; animation-duration: 26s; animation-delay: -12s; }
-      .particle:nth-child(5) { left: 90%; --scale: 0.5; --opacity: 0.4; animation-duration: 17s; animation-delay: -6s; }
-      
-      /* Estilos para el botón de chat */
-      .chat-btn-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
-      .chat-line-btn {
-        display: flex; align-items: center; justify-content: center;
-        background-color: #00B900; color: white;
-        width: 60px; height: 60px; border-radius: 50%;
-        box-shadow: 0 4px 15px rgba(0, 185, 0, 0.4);
-        transition: transform 0.3s, box-shadow 0.3s;
-        text-decoration: none; font-weight: bold; font-size: 14px;
-      }
-      .chat-line-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0, 185, 0, 0.6); }
+      .particle:nth-child(1)  { left: 5%;  --scale: 0.6; --opacity: 0.5;  animation-duration: 18s; animation-delay: -2s;  }
+      .particle:nth-child(2)  { left: 10%; --scale: 0.9; --opacity: 0.8;  animation-duration: 22s; animation-delay: -8s;  }
+      .particle:nth-child(3)  { left: 15%; --scale: 0.7; --opacity: 0.6;  animation-duration: 19s; animation-delay: -4s;  }
+      .particle:nth-child(4)  { left: 20%; --scale: 1.0; --opacity: 0.9;  animation-duration: 26s; animation-delay: -12s; }
+      .particle:nth-child(5)  { left: 25%; --scale: 0.5; --opacity: 0.4;  animation-duration: 17s; animation-delay: -6s;  }
+      .particle:nth-child(6)  { left: 30%; --scale: 0.8; --opacity: 0.7;  animation-duration: 24s; animation-delay: -10s; }
+      .particle:nth-child(7)  { left: 35%; --scale: 0.7; --opacity: 0.6;  animation-duration: 20s; animation-delay: -3s;  }
+      .particle:nth-child(8)  { left: 40%; --scale: 1.1; --opacity: 0.9;  animation-duration: 27s; animation-delay: -14s; }
+      .particle:nth-child(9)  { left: 45%; --scale: 0.6; --opacity: 0.5;  animation-duration: 21s; animation-delay: -5s;  }
+      .particle:nth-child(10) { left: 50%; --scale: 0.9; --opacity: 0.8;  animation-duration: 23s; animation-delay: -11s; }
+      .particle:nth-child(11) { left: 55%; --scale: 0.7; --opacity: 0.6;  animation-duration: 19s; animation-delay: -7s;  }
+      .particle:nth-child(12) { left: 60%; --scale: 1.0; --opacity: 0.95; animation-duration: 25s; animation-delay: -15s; }
+      .particle:nth-child(13) { left: 65%; --scale: 0.5; --opacity: 0.4;  animation-duration: 18s; animation-delay: -9s;  }
+      .particle:nth-child(14) { left: 70%; --scale: 0.8; --opacity: 0.7;  animation-duration: 24s; animation-delay: -1s;  }
+      .particle:nth-child(15) { left: 75%; --scale: 0.7; --opacity: 0.6;  animation-duration: 20s; animation-delay: -13s; }
+      .particle:nth-child(16) { left: 80%; --scale: 1.1; --opacity: 0.95; animation-duration: 28s; animation-delay: -16s; }
+      .particle:nth-child(17) { left: 85%; --scale: 0.6; --opacity: 0.5;  animation-duration: 22s; animation-delay: -4s;  }
+      .particle:nth-child(18) { left: 90%; --scale: 0.9; --opacity: 0.8;  animation-duration: 26s; animation-delay: -6s;  }
+      .particle:nth-child(19) { left: 95%; --scale: 0.7; --opacity: 0.6;  animation-duration: 19s; animation-delay: -2s;  }
+      .particle:nth-child(20) { left: 50%; --scale: 0.4; --opacity: 0.35; animation-duration: 16s; animation-delay: -10s; }
+      .particle:nth-child(odd) { --x-offset: -10px; }
+      .particle:nth-child(even) { --x-offset: 12px; }
     </style>
-
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@18.2.0",
-        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-        "lucide-react": "https://esm.sh/lucide-react@0.263.1"
-      }
-    }
-    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
 </head>
-
-<body class="bg-slate-950 text-white antialiased">
+  <body class="bg-slate-950 text-white antialiased">
     <div id="root"></div>
-
-    <script type="module">
-        import React from 'react';
-        import { createRoot } from 'react-dom/client';
-        import { Bot, Zap, Shield, Cpu, ArrowRight } from 'lucide-react';
-
-        function App() {
-            return React.createElement('div', { className: "min-h-screen font-sans relative" },
-                
-                // Fondo de partículas
-                React.createElement('div', { className: "hero__particles" },
-                    [...Array(5)].map((_, i) => React.createElement('div', { key: i, className: "particle" }))
-                ),
-
-                // Navbar
-                React.createElement('nav', { className: "glass fixed w-full z-50 px-6 py-4" },
-                    React.createElement('div', { className: "max-w-7xl mx-auto flex justify-between items-center" },
-                        React.createElement('div', { className: "flex items-center gap-2" },
-                            React.createElement(Bot, { className: "w-8 h-8 text-primary-500 animate-pulse-glow" }),
-                            React.createElement('span', { className: "text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-primary-400" }, "Avanti AI Systems")
-                        )
-                    )
-                ),
-
-                // Hero Section (Contenido Principal)
-                React.createElement('main', { className: "relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center" },
-                    // Badge
-                    React.createElement('div', { className: "inline-flex items-center px-4 py-2 rounded-full border border-primary-500/30 bg-primary-500/10 text-primary-300 mb-8 animate-fade-in-up" },
-                        React.createElement(Zap, { className: "w-4 h-4 mr-2" }),
-                        React.createElement('span', { className: "text-sm font-medium" }, "Potenciando el futuro con IA")
-                    ),
-                    
-                    // Título
-                    React.createElement('h1', { className: "text-5xl md:text-7xl font-extrabold tracking-tight mb-8 animate-fade-in-up", style: { animationDelay: '0.1s' } },
-                        "Automatización Inteligente para",
-                        React.createElement('span', { className: "block text-primary-500 mt-2" }, "Empresas Modernas")
-                    ),
-
-                    // Descripción
-                    React.createElement('p', { className: "max-w-2xl text-xl text-slate-400 mb-10 animate-fade-in-up", style: { animationDelay: '0.2s' } },
-                        "Transformamos tu negocio integrando soluciones de Inteligencia Artificial, Chatbots avanzados y flujos de trabajo automatizados."
-                    ),
-
-                    // Grid de Características
-                    React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 w-full animate-fade-in-up", style: { animationDelay: '0.4s' } },
-                        FeatureCard({ icon: Cpu, title: "Procesamiento N8N", desc: "Automatización de backend robusta y escalable." }),
-                        FeatureCard({ icon: Bot, title: "Chatbots IA", desc: "Atención al cliente 24/7 con integración a LINE." }),
-                        FeatureCard({ icon: Shield, title: "Seguridad Total", desc: "Infraestructura segura desplegada en AWS." })
-                    )
-                ),
-
-                // Botón Flotante de LINE (Integrado)
-                React.createElement('div', { className: "chat-btn-container animate-float" },
-                    React.createElement('a', {
-                        href: "https://line.me/R/oaMessage/@147ahxmg/?Hola%20quiero%20comenzar",
-                        className: "chat-line-btn",
-                        target: "_blank",
-                        rel: "noopener noreferrer"
-                    }, "LINE")
-                )
-            );
-        }
-
-        // Componente auxiliar para las tarjetas
-        function FeatureCard({ icon, title, desc }) {
-            return React.createElement('div', { className: "p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary-500/50 transition-all duration-300 hover:-translate-y-1" },
-                React.createElement(icon, { className: "w-10 h-10 text-primary-400 mb-4" }),
-                React.createElement('h3', { className: "text-lg font-semibold text-white mb-2" }, title),
-                React.createElement('p', { className: "text-slate-400" }, desc)
-            );
-        }
-
-        // Renderizado Final
-        const rootElement = document.getElementById('root');
-        if (rootElement) {
-            const root = createRoot(rootElement);
-            root.render(React.createElement(App));
-        }
-    </script>
-</body>
+  </body>
 </html>
