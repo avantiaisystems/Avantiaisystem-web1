@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FEATURES_DATA } from '../constants';
 import ScrollAnimation from './ScrollAnimation';
 import { useLanguage } from '../LanguageContext';
@@ -10,17 +10,6 @@ import { useNavigation, View } from '../NavigationContext';
 const Features: React.FC = () => {
   const { t } = useLanguage();
   const { navigateTo } = useNavigation();
-
-  // State for randomizing analytics values (now used for other dynamic data simulations)
-  const [dataValues, setDataValues] = useState(['42%', '65%', '89%', '54%', '31%']);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-        const newValues = Array(5).fill(0).map(() => `${Math.floor(Math.random() * 90) + 10}%`);
-        setDataValues(newValues);
-    }, 2000); 
-    return () => clearInterval(interval);
-  }, []);
 
   const handleCardClick = (id: string) => {
     let view: View | null = null;

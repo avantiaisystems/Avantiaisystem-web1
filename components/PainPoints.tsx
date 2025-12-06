@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ScrollAnimation from './ScrollAnimation';
 import { useLanguage } from '../LanguageContext';
@@ -13,8 +14,8 @@ const PainPoints: React.FC = () => {
       id: 'lostLeads',
       view: 'pain-lost-leads',
       icon: <PhoneMissed className="w-8 h-8 text-red-400" />,
-      // Keep shake slightly reactive to differentiate, but still noticeable
-      animationClass: 'group-hover:animate-shake', 
+      // Changed from group-hover:animate-shake to animate-shake for continuous movement
+      animationClass: 'animate-shake', 
       bgGradient: 'from-red-900/20 to-slate-900',
       hoverBorder: 'hover:border-red-500/30',
       hoverShadow: 'hover:shadow-red-900/20'
@@ -23,7 +24,7 @@ const PainPoints: React.FC = () => {
       id: 'dataChaos',
       view: 'pain-data-chaos',
       icon: <Database className="w-8 h-8 text-orange-400" />,
-      // CONTINUOUS animation, no hover required
+      // CONTINUOUS animation
       animationClass: 'animate-glitch', 
       bgGradient: 'from-orange-900/20 to-slate-900',
       hoverBorder: 'hover:border-orange-500/30',
@@ -33,7 +34,7 @@ const PainPoints: React.FC = () => {
       id: 'manualWork',
       view: 'pain-manual-work',
       icon: <FileX className="w-8 h-8 text-yellow-400" />,
-      // CONTINUOUS animation, no hover required
+      // CONTINUOUS animation
       animationClass: 'animate-stack-up', 
       bgGradient: 'from-yellow-900/20 to-slate-900',
       hoverBorder: 'hover:border-yellow-500/30',
@@ -72,7 +73,8 @@ const PainPoints: React.FC = () => {
                 
                 <div className="p-8 flex flex-col h-full relative z-10">
                   <div className="w-16 h-16 rounded-2xl bg-slate-950 border border-white/10 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                     <div className={point.animationClass}>
+                     {/* Applied style to slow down the shake slightly so it isn't too aggressive continuously */}
+                     <div className={point.animationClass} style={point.id === 'lostLeads' ? { animationDuration: '3s' } : {}}>
                         {point.icon}
                      </div>
                   </div>

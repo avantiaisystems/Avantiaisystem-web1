@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Twitter, Github, Linkedin, Instagram } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
@@ -58,13 +59,15 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="footer" className="bg-slate-950 border-t border-white/10 pt-16 pb-8">
+    <footer id="footer" className="bg-slate-950 border-t border-white/5 pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        
+        {/* Main Grid: Clean 4-Column Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
-          {/* Brand Column */}
-          <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
+          {/* Column 1: Brand & Socials (Spans 4 columns) */}
+          <div className="lg:col-span-4 flex flex-col items-start">
+            <div className="flex items-center space-x-2 mb-6 cursor-pointer" onClick={() => handleLinkClick({ preventDefault: () => {} } as any, 'about')}>
               <div className="relative h-8 w-auto">
                 <img 
                   src="https://brandstore.net/wp-content/uploads/2024/09/Logo-Avanti-AI-Systems.png" 
@@ -78,38 +81,42 @@ const Footer: React.FC = () => {
                 <span className="hidden text-xl font-bold text-white">Avanti AI Systems</span>
               </div>
             </div>
-            <p className="text-slate-400 mb-6 text-sm leading-relaxed">
+            <p className="text-slate-500 mb-8 text-sm leading-relaxed max-w-sm font-light">
               {t('footer.tagline')}
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white transition-all hover:shadow-[0_0_20px_#38bdf8] hover:bg-[#38bdf8]/10 hover:border-[#38bdf8]/30 group hover:animate-neon-pulse">
-                <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            
+            {/* Social Icons - Clean Ghost Style */}
+            <div className="flex space-x-5">
+              <a href="#" className="text-slate-500 hover:text-white transition-colors duration-300">
+                <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white transition-all hover:shadow-[0_0_20px_#ffffff] hover:bg-white/10 hover:border-white/30 group hover:animate-neon-pulse">
-                <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <a href="#" className="text-slate-500 hover:text-white transition-colors duration-300">
+                <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-900 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white transition-all hover:shadow-[0_0_20px_#0077b5] hover:bg-[#0077b5]/10 hover:border-[#0077b5]/30 group hover:animate-neon-pulse">
-                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <a href="#" className="text-slate-500 hover:text-white transition-colors duration-300">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-slate-500 hover:text-white transition-colors duration-300">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-          {/* Solutions Column */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-6">{t('footer.solutions')}</h4>
-            <ul className="space-y-3">
+          {/* Column 2: Solutions (Spans 3 columns) */}
+          <div className="lg:col-span-3 lg:col-start-6">
+            <h4 className="text-sm font-semibold text-white tracking-wide mb-6">{t('footer.solutions')}</h4>
+            <ul className="space-y-4">
               <li><button onClick={(e) => handleLinkClick(e, 'automation')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.automation')}</button></li>
               <li><button onClick={(e) => handleLinkClick(e, 'conversational')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.conversational')}</button></li>
-              <li><button onClick={(e) => handleLinkClick(e, 'content-generation')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.content-generation')}</button></li>
               <li><button onClick={(e) => handleLinkClick(e, 'integration')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.integration')}</button></li>
               <li><button onClick={(e) => handleLinkClick(e, 'autonomous-agents')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.autonomous-agents')}</button></li>
             </ul>
           </div>
 
-          {/* Agency Column */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-6">{t('footer.agency')}</h4>
-            <ul className="space-y-3">
+          {/* Column 3: Company (Spans 2 columns) */}
+          <div className="lg:col-span-2">
+            <h4 className="text-sm font-semibold text-white tracking-wide mb-6">{t('footer.company')}</h4>
+            <ul className="space-y-4">
               <li><button onClick={(e) => handleLinkClick(e, 'about')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.home')}</button></li>
               <li><button onClick={(e) => handleLinkClick(e, 'process')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.process')}</button></li>
               <li><button onClick={(e) => handleLinkClick(e, 'blog')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.blog')}</button></li>
@@ -117,21 +124,21 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Legal Column */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-6">{t('footer.legal')}</h4>
-            <ul className="space-y-3">
+          {/* Column 4: Legal (Spans 2 columns) */}
+          <div className="lg:col-span-2">
+            <h4 className="text-sm font-semibold text-white tracking-wide mb-6">{t('footer.legal')}</h4>
+            <ul className="space-y-4">
               <li><button onClick={(e) => handleLinkClick(e, 'privacy')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.privacy')}</button></li>
               <li><button onClick={(e) => handleLinkClick(e, 'terms')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.terms')}</button></li>
-              <li><button onClick={(e) => handleLinkClick(e, 'cookies')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.cookies')}</button></li>
-              <li><button onClick={(e) => handleLinkClick(e, 'compliance')} className="text-sm text-primary-400 font-semibold hover:text-white transition-colors text-left">{t('footer.links.compliance')}</button></li>
+              <li><button onClick={(e) => handleLinkClick(e, 'compliance')} className="text-sm text-slate-400 hover:text-primary-400 transition-colors text-left">{t('footer.links.compliance')}</button></li>
             </ul>
           </div>
 
         </div>
 
-        <div className="border-t border-white/5 pt-8 text-center">
-          <p className="text-sm text-slate-600">{t('footer.rights')}</p>
+        {/* Bottom Bar: Copyright */}
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-slate-600 font-medium">{t('footer.rights')}</p>
         </div>
       </div>
     </footer>

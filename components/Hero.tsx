@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
 import { useLanguage } from '../LanguageContext';
@@ -13,6 +13,7 @@ import { useNavigation } from '../NavigationContext';
 const Hero: React.FC = () => {
   const { t } = useLanguage();
   const { navigateTo, currentView } = useNavigation();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const handleContactClick = () => {
     if (currentView !== 'home') {
@@ -23,8 +24,118 @@ const Hero: React.FC = () => {
     }, 100);
   };
 
+  // Neural Network Particle Effect
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const particles: Particle[] = [];
+    const particleCount = window.innerWidth < 768 ? 40 : 80; // Fewer particles on mobile
+    const connectionDistance = 150;
+
+    class Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      color: string;
+
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5; // Velocity X
+        this.vy = (Math.random() - 0.5) * 0.5; // Velocity Y
+        this.size = Math.random() * 2 + 1;
+        // Electric colors: Cyan, Violet, White
+        const colors = ['#06b6d4', '#8b5cf6', '#ffffff']; 
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        // Bounce off edges
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        if (!ctx) return;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+      }
+    }
+
+    // Initialize particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    const animate = () => {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+      
+      // Update and draw particles
+      particles.forEach((particle, index) => {
+        particle.update();
+        particle.draw();
+
+        // Draw connections (Neural Network)
+        for (let j = index + 1; j < particles.length; j++) {
+          const dx = particle.x - particles[j].x;
+          const dy = particle.y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < connectionDistance) {
+            ctx.beginPath();
+            const opacity = 1 - distance / connectionDistance;
+            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity * 0.5})`; // Violet glow lines
+            ctx.lineWidth = 1;
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <section className="hero relative pt-28 pb-12 lg:pt-48 lg:pb-24 overflow-hidden">
+      
+      {/* Neural Network Canvas Background */}
+      <canvas 
+        ref={canvasRef}
+        className="absolute inset-0 z-0 pointer-events-none opacity-60"
+      />
+
       {/* Refined Background Mesh - Dark Mode / Electric */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary-700/20 rounded-full blur-[120px] animate-blob mix-blend-screen"></div>
@@ -32,30 +143,6 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] bg-purple-600/20 rounded-full blur-[120px] animate-blob mix-blend-screen" style={{ animationDelay: '4s' }}></div>
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-      </div>
-
-      {/* Particles Container */}
-      <div className="hero__particles">
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
