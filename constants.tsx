@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { NavItem, Feature, FAQItem, Plan, Testimonial, ProcessStep, BlogPost } from './types';
 import { Search, Lightbulb, Cog, Rocket, Bot, MessageCircle, BarChart3, Sliders, Network, PenTool, BrainCircuit, Instagram, Facebook, Linkedin, Twitter, Youtube, Twitch, FileSpreadsheet, FileCode, FileJson, FileType, Table, FileText } from 'lucide-react';
@@ -12,8 +11,12 @@ import { Search, Lightbulb, Cog, Rocket, Bot, MessageCircle, BarChart3, Sliders,
 
 // ENLACES DE CHAT REAL (Configurar con tus datos reales)
 export const CHAT_LINKS = {
-  whatsapp: "https://wa.me/1234567890", // Reemplazar con tu número de WhatsApp Business
-  line: "https://line.me/R/ti/p/@yourlineid" // Reemplazar con tu ID de LINE Official Account
+  // Para WhatsApp: https://wa.me/[numero]
+  whatsapp: "https://wa.me/1234567890", 
+  
+  // Para LINE: https://line.me/R/ti/p/[LINE_ID]
+  // ID actualizado
+  line: "https://line.me/R/ti/p/@147ahxmg" 
 };
 
 export const LOGOS = [

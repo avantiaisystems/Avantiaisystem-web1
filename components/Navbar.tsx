@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`fixed w-full z-[100] transition-all duration-500 animate-slide-down ${
+      className={`fixed w-full z-[1000] transition-all duration-500 animate-slide-down ${
         scrolled 
           ? 'glass border-white/5 py-3 md:py-4 shadow-2xl shadow-black/50' 
           : 'bg-transparent border-transparent py-4 md:py-6'
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center">
           
           {/* Logo */}
-          <div className="flex items-center space-x-2 group cursor-pointer relative z-[110]" onClick={() => handleNavClick('root')}>
+          <div className="flex items-center space-x-2 group cursor-pointer relative z-[1010]" onClick={() => handleNavClick('root')}>
             <div className="relative h-8 md:h-10 w-auto">
               <img 
                 src="https://brandstore.net/wp-content/uploads/2024/09/Logo-Avanti-AI-Systems.png" 
@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-3 z-[110]">
+          <div className="md:hidden flex items-center space-x-3 z-[1010]">
              {/* Mobile Lang Switcher Toggle */}
              <button 
                 onClick={() => {
@@ -167,7 +167,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`md:hidden fixed inset-0 h-screen w-screen bg-slate-950/98 backdrop-blur-xl z-[100] transition-all duration-300 ease-in-out flex flex-col justify-center items-center ${
+        className={`md:hidden fixed inset-0 h-screen w-screen bg-slate-950/98 backdrop-blur-xl z-[1005] transition-all duration-300 ease-in-out flex flex-col justify-center items-center ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >

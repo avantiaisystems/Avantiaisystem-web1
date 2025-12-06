@@ -1,67 +1,54 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import ScrollAnimation from './ScrollAnimation';
 import { useLanguage } from '../LanguageContext';
-import { MessageCircle, Bot, Send, X, Minimize2, Paperclip } from 'lucide-react';
+import { MessageCircle, ArrowRight, ExternalLink } from 'lucide-react';
 import { CHAT_LINKS } from '../constants';
 
 const ChatbotDemo: React.FC = () => {
   const { t, language } = useLanguage();
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState<{text: string, isUser: boolean}[]>([]);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Determine platform based on language
+  // Platform Logic
   const isJapanese = language === 'ja';
-  const platformName = isJapanese ? 'LINE' : 'WhatsApp';
-  const platformColor = isJapanese ? 'bg-[#06C755]' : 'bg-[#25D366]';
-  const platformHeader = isJapanese ? 'bg-[#06C755]' : 'bg-[#075E54]'; // WhatsApp header is darker green usually
-  const bubbleColor = isJapanese ? 'bg-[#8DE055]' : 'bg-[#dcf8c6]';
+  
+  // Configuration based on language
+  const platformConfig = isJapanese 
+    ? {
+        name: 'LINE',
+        color: 'bg-[#06C755]',
+        hoverColor: 'hover:bg-[#05b34c]',
+        textColor: 'text-white',
+        iconBg: 'bg-white/20',
+        link: CHAT_LINKS.line,
+        logo: (className: string) => (
+            <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+                <path d="M12 0C5.373 0 0 4.974 0 11.111c0 5.494 4.298 10.089 10.233 10.956.401.086.945.263 1.083.601.124.305.081.751.036 1.254-.088.995-.55 3.834-2.08 5.692 2.997-.433 8.823-5.381 8.823-10.974 0-6.137-5.373-11.111-12.095-11.111z"/>
+            </svg>
+        )
+      }
+    : {
+        name: 'WhatsApp',
+        color: 'bg-[#25D366]',
+        hoverColor: 'hover:bg-[#1da851]',
+        textColor: 'text-white',
+        iconBg: 'bg-white/20',
+        link: CHAT_LINKS.whatsapp,
+        logo: (className: string) => (
+            <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        )
+      };
 
-  // Initialize with welcome message
-  useEffect(() => {
-    if (messages.length === 0) {
-      setMessages([
-        { text: t('chatbotDemo.demoMsg1'), isUser: false },
-        { text: t('chatbotDemo.demoMsg2'), isUser: false }
-      ]);
-    }
-  }, [t, messages.length]);
-
-  // Auto-scroll to bottom
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isChatOpen]);
-
-  const handleSendMessage = (e?: React.FormEvent) => {
-    e?.preventDefault();
-    if (!message.trim()) return;
-
-    // Add user message to UI
-    const userText = message;
-    setMessages(prev => [...prev, { text: userText, isUser: true }]);
-    setMessage('');
-
-    // Simulate "Typing..." delay then redirect logic
-    setTimeout(() => {
-        // Construct the URL to send this specific message
-        // This keeps the user feeling like they started the chat here
-        let link = '';
-        if (isJapanese) {
-           link = CHAT_LINKS.line; // LINE doesn't support pre-filled text in the same simple way via URL scheme, usually just opens profile
-           window.open(link, '_blank', 'noopener,noreferrer');
-        } else {
-           // WhatsApp Pre-filled message
-           const phone = CHAT_LINKS.whatsapp.replace('https://wa.me/', '');
-           link = `https://wa.me/${phone}?text=${encodeURIComponent(userText)}`;
-           window.open(link, '_blank', 'noopener,noreferrer');
-        }
-    }, 800);
+  const handleStartChat = () => {
+    window.open(platformConfig.link, '_blank', 'noopener,noreferrer');
   };
 
   return (
     <section id="chatbot-demo" className="py-20 bg-slate-950 relative overflow-hidden border-t border-white/5">
+       {/* Background accent */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
@@ -77,109 +64,52 @@ const ChatbotDemo: React.FC = () => {
                 {t('chatbotDemo.subtitle')}
               </p>
               
-              {/* Trigger Button (if widget is closed) */}
-              {!isChatOpen && (
-                <button 
-                  onClick={() => setIsChatOpen(true)}
-                  className={`inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 ${platformColor} hover:brightness-110 text-white rounded-full font-bold text-base md:text-lg transition-all shadow-lg hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] active:scale-95 animate-pulsate-fwd mx-auto md:mx-0`}
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>{t('chatbotDemo.startChat')}</span>
-                </button>
-              )}
+              <div className="flex flex-col gap-4">
+                 <div className="flex items-center gap-3 text-slate-400 text-sm md:justify-start justify-center">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <span>24/7 Availability</span>
+                 </div>
+              </div>
             </div>
           </ScrollAnimation>
 
-          {/* Interactive Widget Container */}
-          <div className="relative flex justify-center h-[550px] items-end md:items-center">
-            
-             {/* THE WIDGET */}
-             <div 
-                className={`transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    isChatOpen 
-                    ? 'opacity-100 translate-y-0 scale-100' 
-                    : 'opacity-50 translate-y-10 scale-95 pointer-events-none'
-                } w-full max-w-sm bg-slate-900 rounded-[1.5rem] shadow-2xl border border-white/10 overflow-hidden flex flex-col h-[500px]`}
-             >
-                {/* Header */}
-                <div className={`${platformHeader} p-4 flex items-center justify-between text-white shadow-md z-10`}>
-                    <div className="flex items-center gap-3">
-                        <div className="relative">
-                            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <Bot className="w-6 h-6 text-white" />
-                            </div>
-                            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-[#075E54] rounded-full"></div>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-base leading-tight">{t('chatbotDemo.agentName')}</h4>
-                            <p className="text-xs opacity-80">Online</p>
-                        </div>
+          <ScrollAnimation delay={200}>
+             {/* Invite Card */}
+             <div className="relative group">
+                {/* Glow effect matching platform */}
+                <div className={`absolute inset-0 ${platformConfig.color} opacity-20 blur-[60px] group-hover:opacity-30 transition-opacity`}></div>
+                
+                <div className="relative bg-slate-900 border border-white/10 rounded-[2.5rem] p-8 md:p-12 text-center shadow-2xl flex flex-col items-center gap-8">
+                    
+                    {/* Icon Bubble */}
+                    <div className={`w-24 h-24 rounded-full ${platformConfig.color} flex items-center justify-center shadow-lg shadow-black/20 animate-float`}>
+                        {platformConfig.logo("w-12 h-12 text-white")}
                     </div>
-                    <div className="flex gap-2">
-                        <button onClick={() => setIsChatOpen(false)} className="p-1 hover:bg-white/10 rounded-full transition-colors">
-                            <Minimize2 className="w-5 h-5" />
-                        </button>
+
+                    <div className="space-y-2">
+                        <h4 className="text-2xl font-bold text-white">
+                            {t('chatbotDemo.inviteTitle')}
+                        </h4>
+                        <p className="text-slate-400">
+                           {t('chatbotDemo.inviteDesc')}
+                        </p>
                     </div>
-                </div>
 
-                {/* Chat Body */}
-                <div className="flex-1 bg-[#E5DDD5] relative overflow-y-auto p-4 space-y-3 custom-scrollbar">
-                     {/* Chat Background Pattern Overlay */}
-                     <div className="absolute inset-0 opacity-[0.06] bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')] pointer-events-none"></div>
-                     
-                     {messages.map((msg, idx) => (
-                        <div key={idx} className={`relative z-10 flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
-                            <div 
-                                className={`max-w-[80%] p-3 text-sm rounded-lg shadow-sm ${
-                                    msg.isUser 
-                                    ? `${bubbleColor} text-slate-900 rounded-tr-none` 
-                                    : 'bg-white text-slate-900 rounded-tl-none'
-                                } animate-message-pop-in`}
-                            >
-                                {msg.text}
-                                <span className="text-[10px] text-slate-500 block text-right mt-1 opacity-70">
-                                    {new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
-                                </span>
-                            </div>
-                        </div>
-                     ))}
-                     <div ref={messagesEndRef} />
-                </div>
-
-                {/* Input Area */}
-                <form onSubmit={handleSendMessage} className="bg-[#f0f2f5] p-3 flex items-center gap-2 border-t border-slate-200">
-                    <button type="button" className="p-2 text-slate-500 hover:bg-slate-200 rounded-full transition-colors">
-                        <Paperclip className="w-5 h-5" />
-                    </button>
-                    <input 
-                        type="text" 
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder={t('chatbotDemo.placeholder')}
-                        className="flex-1 bg-white border-none rounded-full px-4 py-2.5 text-slate-800 text-sm focus:outline-none focus:ring-1 focus:ring-slate-300 shadow-sm"
-                    />
                     <button 
-                        type="submit" 
-                        disabled={!message.trim()}
-                        className={`p-2.5 rounded-full text-white transition-all transform active:scale-95 ${
-                            message.trim() ? platformHeader : 'bg-slate-400 cursor-not-allowed'
-                        }`}
+                       onClick={handleStartChat}
+                       className={`w-full py-4 px-8 rounded-full font-bold text-white text-lg ${platformConfig.color} ${platformConfig.hoverColor} transition-all transform hover:scale-105 active:scale-95 shadow-lg flex items-center justify-center gap-3 animate-pulsate-fwd`}
                     >
-                        <Send className="w-4 h-4" />
+                       {platformConfig.logo("w-6 h-6")}
+                       {t('chatbotDemo.startChat')}
+                       <ExternalLink className="w-5 h-5 opacity-80" />
                     </button>
-                </form>
+                    
+                    <p className="text-xs text-slate-500 mt-2">
+                       {t('chatbotDemo.disclaimer')}
+                    </p>
+                </div>
              </div>
-
-             {/* Closed State Placeholder / Visual Aid */}
-             {!isChatOpen && (
-                 <div 
-                    className="absolute inset-0 flex items-center justify-center opacity-30 pointer-events-none" 
-                    aria-hidden="true"
-                 >
-                     <div className="w-64 h-64 rounded-full bg-primary-500/20 filter blur-[80px] animate-pulse"></div>
-                 </div>
-             )}
-          </div>
+          </ScrollAnimation>
 
         </div>
       </div>

@@ -1,4 +1,5 @@
 
+
 /* 
   -------------------------------------------------------------------------
   ARCHIVO DE TRADUCCIONES / TRANSLATION FILE
@@ -78,7 +79,8 @@ export const translations = {
           desc: "Entidades digitales que planifican y ejecutan tareas complejas sin intervención humana."
         }
       },
-      readMore: "Leer más"
+      readMore: "Leer más",
+      examples: "EJEMPLOS DE APLICACIÓN"
     },
     process: {
       label: "Nuestro Proceso",
@@ -105,18 +107,15 @@ export const translations = {
       hideQR: "Ocultar Código QR"
     },
     chatbotDemo: {
-      label: "Atención al Cliente AI",
-      title: "Soporte Instantáneo Multiplataforma",
-      subtitle: "Nuestros chatbots se integran nativamente con WhatsApp y LINE para brindar asistencia inmediata.",
-      startChat: "Iniciar Chat de Soporte",
-      placeholder: "Escribe tu consulta...",
-      agentName: "Soporte Avanti",
-      demoMsg1: "¡Hola! Bienvenido al soporte de Avanti AI.",
-      demoMsg2: "¿En qué puedo ayudarte hoy?",
+      label: "Soporte AI en Tiempo Real",
+      title: "Prueba la velocidad de nuestra atención automatizada",
+      subtitle: "Conectamos tu negocio directamente con las plataformas de mensajería más usadas del mundo.",
+      inviteTitle: "Inicia la Prueba",
+      inviteDesc: "Escanea o haz clic para interactuar con nuestro Bot de Soporte real.",
+      startChat: "Probar en WhatsApp",
+      disclaimer: "Al iniciar, serás redirigido a la aplicación oficial.",
       platformWA: "WhatsApp",
-      platformLINE: "LINE",
-      openWhatsApp: "Chat en WhatsApp",
-      openLine: "Chat en LINE"
+      platformLINE: "LINE"
     },
     testimonials: {
       label: "Testimonios",
@@ -344,7 +343,8 @@ export const translations = {
           desc: "Digital entities that plan and execute complex tasks without human intervention."
         }
       },
-      readMore: "Read more"
+      readMore: "Read more",
+      examples: "APPLICATION EXAMPLES"
     },
     process: {
       label: "Our Process",
@@ -371,18 +371,15 @@ export const translations = {
       hideQR: "Hide QR Code"
     },
     chatbotDemo: {
-      label: "AI Customer Support",
-      title: "Instant Multi-Platform Support",
-      subtitle: "Our chatbots integrate natively with WhatsApp and LINE to provide immediate assistance.",
-      startChat: "Start Support Chat",
-      placeholder: "Type your query...",
-      agentName: "Avanti Support",
-      demoMsg1: "Hello! Welcome to Avanti AI support.",
-      demoMsg2: "How can I help you today?",
+      label: "Real-Time AI Support",
+      title: "Test our Automated Response Speed",
+      subtitle: "We connect your business directly with the world's most used messaging platforms.",
+      inviteTitle: "Start the Test",
+      inviteDesc: "Scan or click to interact with our real Support Bot.",
+      startChat: "Test on WhatsApp",
+      disclaimer: "By starting, you will be redirected to the official app.",
       platformWA: "WhatsApp",
-      platformLINE: "LINE",
-      openWhatsApp: "Chat on WhatsApp",
-      openLine: "Chat on LINE"
+      platformLINE: "LINE"
     },
     testimonials: {
       label: "Testimonials",
@@ -533,7 +530,7 @@ export const translations = {
             content: "How collaborative AI is redefining job roles. AI is not here to replace humans, but to augment their capabilities. The concept of 'Cobots' (collaborative robots) is moving to software, where AI agents work side-by-side with employees on creative and analytical tasks. The future belongs to those who learn to delegate the repetitive to the machine and focus on the strategic."
          }
       },
-      privacy: "Avanti AI Systems - Privacy Policy\n\n1. INTRODUCTION\nAvanti AI Systems is committed to protecting the privacy of its clients. This policy describes how we collect and use your personal and operational data.\n\n2. DATA COLLECTION\nWe collect information necessary for process automation: API credentials (encrypted), transaction logs, and contact data.\n\n3. DATA USAGE IN AI\nYour operational data is used exclusively to configure and execute your automation instances. We do not use your proprietary data to train our public foundational models without your explicit consent.\n\n4. SECURITY\nWe implement bank-grade encryption and strict access controls.\n\n5. CERTIFIED INFRASTRUCTURE\nOur operations are hosted exclusively on world-class cloud providers with ISO 27001 and SOC 2 certifications, including:\n- Amazon Web Services (AWS) for secure computing.\n- Google Cloud Platform for data storage.\n- Google Workspace for identity management.\nThis ensures your information resides on servers meeting the highest standards of physical and logical security.",
+      privacy: "Avanti AI Systems - Privacy Policy\n\n1. INTRODUCTION\nAvanti AI Systems is committed to protecting the privacy of its clients. This policy describes how we collect and use your personal and operational data.\n\n2. DATA COLLECTION\nWe collect information necessary for process automation: API credentials (encrypted), transaction logs, and contact data.\n\n3. DATA USAGE IN AI\nYour operational data is used exclusively to configure and execute your automation instances. We do not use your proprietary data to train our public foundational models without your explicit consent.\n\n4. SECURITY\nWe implement bank-grade encryption and strict access controls.\n\n5. CERTIFIED INFRASTRUCTURE\nOur operations are hosted exclusively on world-class cloud providers with ISO 27001 and SOC 2, including:\n- Amazon Web Services (AWS) for secure computing.\n- Google Cloud Platform for data storage.\n- Google Workspace for identity management.\nThis ensures your information resides on servers meeting the highest standards of physical and logical security.",
       terms: "Avanti AI Systems Terms of Service\n\n1. SERVICES\nWe provide consulting, development, and implementation services for automation and Artificial Intelligence.\n\n2. INTELLECTUAL PROPERTY\nCustom scripts and workflows developed for the client become client property upon final payment. Avanti retains rights to reusable components of its base library.\n\n3. LIABILITY\nAvanti is not liable for autonomous decisions made by AI agents operating under client-defined parameters.",
       cookies: "Cookie Policy\n\nThis website uses cookies to improve user experience. \n\n1. ESSENTIAL\nNecessary for navigation and access to secure areas.\n\n2. ANALYTICAL\nAllow us to measure traffic and usage to improve our services.\n\n3. MANAGEMENT\nYou can disable cookies in your browser settings.",
       licenses: "Licenses and Attributions\n\nOur solutions integrate open-source technologies under MIT and Apache 2.0 licenses. \n\n- React (MIT)\n- Tailwind CSS (MIT)\n- Lucide Icons (ISC)\n\nAll copyrights of third-party libraries used are respected.",
@@ -610,7 +607,8 @@ export const translations = {
           desc: "人間の介入なしに複雑なタスクを計画および実行するデジタルエンティティ。"
         }
       },
-      readMore: "続きを読む"
+      readMore: "続きを読む",
+      examples: "アプリケーション例"
     },
     process: {
       label: "私たちのプロセス",
@@ -637,18 +635,15 @@ export const translations = {
       hideQR: "QRコードを隠す"
     },
     chatbotDemo: {
-      label: "AIカスタマーサポート",
-      title: "即時マルチプラットフォームサポート",
-      subtitle: "当社のチャットボットはWhatsAppおよびLINEとネイティブに統合され、即時の支援を提供します。",
-      startChat: "サポートチャットを開始",
-      placeholder: "質問を入力...",
-      agentName: "Avantiサポート",
-      demoMsg1: "こんにちは！Avanti AIサポートへようこそ。",
-      demoMsg2: "本日はどのようなご用件でしょうか？",
+      label: "リアルタイムAIサポート",
+      title: "自動応答のスピードをご体感ください",
+      subtitle: "世界で最も利用されているメッセージングプラットフォームと貴社のビジネスを直接接続します。",
+      inviteTitle: "デモを開始",
+      inviteDesc: "スキャンまたはクリックして、実際のサポートボットと対話してください。",
+      startChat: "LINEで体験する",
+      disclaimer: "開始すると、公式アプリにリダイレクトされます。",
       platformWA: "WhatsApp",
-      platformLINE: "LINE",
-      openWhatsApp: "WhatsAppでチャット",
-      openLine: "LINEでチャット"
+      platformLINE: "LINE"
     },
     testimonials: {
       label: "お客様の声",
@@ -662,7 +657,7 @@ export const translations = {
           company: "Global Logistics"
         },
         t2: {
-          content: "彼らが構築したn8nの自動化アーキテクチャにより、2人のフルタイム会計士を雇う必要がなくなりました。ROIは即座に出ました。",
+          content: "彼らが構築した自動化アーキテクチャにより、2人のフルタイム会計士を雇う必要がなくなりました。ROIは即座に出ました。",
           author: "James Chen",
           role: "CEO",
           company: "FinTech Solutions"
@@ -681,13 +676,13 @@ export const translations = {
       readMore: "続きを読む",
       items: {
         "ai-trends": { title: "2024年のAIトレンド", desc: "人工知能が業界をどのように変革しているかを発見してください。" },
-        "automation": { title: "効率的な自動化", desc: "n8nを使用して反復的なプロセスを自動化するためのガイド。" },
+        "automation": { title: "効率的な自動化", desc: "反復的なプロセスを自動化するためのガイド。" },
         "future-work": { title: "仕事の未来", desc: "協調的なAIが仕事の役割をどのように再定義しているか。" }
       }
     },
     contact: {
       label: "連絡先",
-      title: "話しましょう",
+      title: "お話ししましょう",
       subtitle: "ビジネスを変革する準備はできましたか？詳細を残していただければ、こちらからご連絡いたします。",
       form: {
         name: "氏名",
@@ -752,7 +747,7 @@ export const translations = {
       services: {
         automation: {
           title: "プロセス自動化 (RPA)",
-          content: "RPAと認知AIを組み合わせることで、単にルールに従うだけでなく、文脈を「理解」します。現在のシステム（ERP、CRM、メール）に接続し、反復的なタスクを絶え間なく実行する自律型エージェントを実装します。\n\n方法：\nn8nのようなオーケストレーターとコンピュータビジョンモデルを使用して、レガシーシステムを最新のAPIと接続し、手動のデータ入力を排除します。\n\nアプリケーション例：\n物流会社は、請求書処理時間を95％削減しました。以前はスタッフが毎日6時間をデータ入力に費やしていました。現在、RPAエージェントは10分で500件の請求書をエラー0％で処理します。"
+          content: "RPAと認知AIを組み合わせることで、単にルールに従うだけでなく、文脈を「理解」します。現在のシステム（ERP、CRM、メール）に接続し、反復的なタスクを絶え間なく実行する自律型エージェントを実装します。\n\n方法：\nオーケストレーターとコンピュータビジョンモデルを使用して、レガシーシステムを最新のAPIと接続し、手動のデータ入力を排除します。\n\nアプリケーション例：\n物流会社は、請求書処理時間を95％削減しました。以前はスタッフが毎日6時間をデータ入力に費やしていました。現在、RPAエージェントは10分で500件の請求書をエラー0％で処理します。"
         },
         conversational: {
           title: "会話型アシスタントとチャットボット",
@@ -791,8 +786,8 @@ export const translations = {
             content: "生成人工知能はビジネスの風景を再定義しています。2024年には、ローカルデバイスで実行される小規模言語モデル（SLM）が大幅に採用され、コストが削減され、プライバシーが向上するでしょう。さらに、すべてのAIアプリケーションでマルチモダリティ（テキスト、画像、ビデオ）が標準になり、より豊かで自然な対話が可能になります。"
          },
          "automation": {
-            title: "n8nによる効率的な自動化",
-            content: "n8nは、複雑なワークフローを調整するための主要なツールとしての地位を確立しました。クローズドプラットフォームとは異なり、n8nは独自のサーバーでの実行を許可し、データの主権を保証します。この記事では、CRM APIをメッセージングシステムに接続して、第1層のカスタマーサポートの90％を自動化する方法を探ります。"
+            title: "効率的な自動化",
+            content: "複雑なワークフローを調整するための主要なツールとしての地位を確立しました。クローズドプラットフォームとは異なり、独自のサーバーでの実行を許可し、データの主権を保証します。この記事では、CRM APIをメッセージングシステムに接続して、第1層のカスタマーサポートの90％を自動化する方法を探ります。"
          },
          "future-work": {
             title: "協調作業の未来",
